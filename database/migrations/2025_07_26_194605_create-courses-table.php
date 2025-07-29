@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
         Schema::create('courses', function(Blueprint $table){
             $table->id();
             $table->string('course_code')->unique();
-            $table->string('course-name');
+            $table->string('course_name'); // Corrected column name
             $table->integer('credit_hours');
             $table->timestamps();
         });
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('courses');
     }
 };
